@@ -1,6 +1,4 @@
 
-(function() {
-
     //
     // Setup keys!
     //
@@ -49,6 +47,8 @@
             dataURI = null;
             function play(evt) {
                 // sound
+		console.log("in play");
+		console.log("curSound: " + curSound);
                 sounds[curSound].pause();
                 try {
                     sounds[curSound].currentTime = 0.001; //HACK - was for mobile safari, but sort of doesn't matter...
@@ -698,5 +698,3 @@
 
     // }
     // generateFilesForDL();
-
-})();
