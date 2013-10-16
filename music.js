@@ -12,6 +12,8 @@ function playCScale() {
 
 var playingPitch = false;
 function playPitch() {
+	var time;
+	console.log("in play pitch");
 
 	if (playQueue.length == 0) {
 		playingPitch = false;
@@ -22,16 +24,24 @@ function playPitch() {
 	var pitch = playQueue.shift();
 
 	play(pitch);
-	setTimeout(playPitch, 300);
+	time = Math.random() * 300 + 100;
+	setTimeout(playPitch, time);
+}
+
+function getRandomMusic() {
+	getMusicFromQuote(null);
 }
 
 function getMusicFromQuote(ticker) {
 	$.ajax({
 		url : "./ajax/getQuote.php",
 		data : {ticker : ticker},
+		dataType : "json",
 		success : function(data) {
+			console.log("data : " + data);
 			if (data.code == 200) {
 				playQueue = data.response;
+				console.log("playQueue = " + playQueue);
 				playPitch();
 			}
 		}
@@ -40,4 +50,7 @@ function getMusicFromQuote(ticker) {
 
 $(function() {
   $("canvas").remove();
+
+  $("#get-quote-button").on("click", getRandomMusic);
+
 });
