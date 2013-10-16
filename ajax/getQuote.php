@@ -78,8 +78,8 @@ $price = rand(1000000, getrandmax());
 
 $json = array();
 $json["code"] = 200;
-//$json["response"] = convertToMusic($price);
-$json["response"] = convertToMusic(pi());
+$json["response"] = convertToMusic($price);
+//$json["response"] = convertToMusic(pi());
 
 echo json_encode($json);
 ?>
