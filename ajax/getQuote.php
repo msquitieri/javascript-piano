@@ -53,8 +53,8 @@ function convertToPitchArray($base12) {
 }
 
 function convertToMusic($number) {
-	echo "NUMBER: $number";
-	echo "\n\n\nBASE12: $base12";
+	/*echo "NUMBER: $number";
+	echo "\n\n\nBASE12: $base12";*/
 	$base16 = md5($number);
 	//$base12 = convertBase($number, 10, 12);
 	$base12 = convertBase($base16, 16, 12);
@@ -63,6 +63,8 @@ function convertToMusic($number) {
 
 	return $array;
 }
+
+header ("Content-type: application/json");
 
 $ticker = $_REQUEST["ticker"];
 if ($ticker == NULL) $ticker = "AAPL";
@@ -76,7 +78,8 @@ $price = rand(1000000, getrandmax());
 
 $json = array();
 $json["code"] = 200;
-$json["response"] = convertToMusic($price);
+//$json["response"] = convertToMusic($price);
+$json["response"] = convertToMusic(pi());
 
 echo json_encode($json);
 ?>
