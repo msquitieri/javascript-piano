@@ -52,5 +52,4 @@ $(function() {
   $("canvas").remove();
 
   $("#get-quote-button").on("click", getRandomMusic);
-
 });
