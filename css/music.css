@@ -18,3 +18,7 @@
 #piano { 
 	margin-top: 2em;
 }
+
+#content-inner {
+    padding: 0px;
+}
