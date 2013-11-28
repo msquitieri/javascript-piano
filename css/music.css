@@ -1,0 +1,20 @@
+#header {
+	text-align: center;
+	color: black;
+	font-family: "Helvetica Neue";
+	font-weight: 300;
+	font-size: 25pt;
+	margin: 0px;
+	padding: 1em;
+	background-color: black;
+	color: white;
+}
+
+#button-holder {
+	text-align:center;
+	margin: 3em;
+}
+
+#piano { 
+	margin-top: 2em;
+}
