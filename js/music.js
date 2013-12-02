@@ -29,7 +29,53 @@ function playPitch() {
 }
 
 function getRandomMusic() {
+	playQueue.length = 0; 
 	getMusicFromQuote(null);
+}
+
+function numberToPitch(number) {
+	var pitch = null;
+	switch(number) {
+		case 0:
+			pitch = "C";
+			break;
+		case 1:
+			pitch = "C#";
+			break;
+		case 2:
+			pitch = "D";
+			break;
+		case 3:
+			pitch = "D#";
+			break;
+		case 4:
+			pitch = "E";
+			break;
+		case 5:
+			pitch = "F";
+			break;
+		case 6:
+			pitch = "F#";
+			break;
+		case 7:
+			pitch = "G";
+			break;
+		case 8:
+			pitch = "G#";
+			break;
+		case 9:
+			pitch = "A";
+			break;
+		case 10:
+			pitch = "A#";
+			break;
+		case 11:
+			pitch = "B";
+			break;
+		default:
+			break;
+	}
+	return pitch;
 }
 
 function getMusicFromQuote(ticker) {
@@ -40,8 +86,20 @@ function getMusicFromQuote(ticker) {
 		success : function(data) {
 			console.log("data : " + data);
 			if (data.code == 200) {
-				playQueue = data.response;
+				playQueue = data.response.music;
 				console.log("playQueue = " + playQueue);
+				
+				$("#number").html(data.response.number);
+				$("#hash").html(data.response.hash);
+				$("#base12").html(data.response.base12);
+
+				var pitches = [];
+				for(var i=0; i<data.response.music.length; i++) {
+					console.log(data.response.music[i]);
+					pitches.push(numberToPitch(data.response.music[i]));
+				}
+				$("#pitches").html(pitches.join(", "));
+
 				playPitch();
 			}
 		}
