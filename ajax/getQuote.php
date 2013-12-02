@@ -78,7 +78,18 @@ $price = rand(1000000, getrandmax());
 
 $json = array();
 $json["code"] = 200;
-$json["response"] = convertToMusic($price);
+
+$response = array();
+
+$music = convertToMusic($price);
+
+$response["music"] = $music;
+$response["number"] = $price;
+$response["hash"] = md5($price);
+$response["base12"] = convertBase(md5($price), 16, 12);
+
+$json["response"] = $response;
+
 //$json["response"] = convertToMusic(pi());
 
 echo json_encode($json);
