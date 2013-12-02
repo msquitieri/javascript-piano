@@ -20,5 +20,35 @@
 }
 
 #content-inner {
-    padding: 0px;
+	padding: 0px;
+}
+
+#footer {
+	float: right;
+	font-family: "Helvetica Neue", "Helvetica";
+	color: black;
+}
+
+#footer a {
+	color: black;
+	font-weight: bold;
+}
+
+#footer a:hover {
+	font-style: italic;
+}
+
+#information .header {
+	display: block;
+	font-weight: bold;
+}
+
+#information {
+	margin: auto;
+	text-align: center;
+}
+
+#information span {
+	color: black;
+	font-family: "Helvetica", "Helvetica Neue";
 }
